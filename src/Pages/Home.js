@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
+import Card from "@mui/material/Card";
 export const Home = () => {
   const users = [
     { id: 1, name: "abc", email: "abc@abc.com" },
