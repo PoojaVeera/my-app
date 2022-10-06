@@ -12,9 +12,9 @@ function App() {
       <Layout />
       <div className="Data">
         <Routes>
-          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/Details" element={<Details />} />
-          <Route path="/Mock " element={<Mock />} />
+          <Route path="/Mock" element={<Mock />} />
         </Routes>
       </div>
     </div>
