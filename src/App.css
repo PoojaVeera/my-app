@@ -9,6 +9,7 @@
 .Header {
   color: whitesmoke;
   background-color: blue;
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0%;
   width: 100%;
