@@ -14,8 +14,9 @@ export const Home = () => {
     let Id = len + 1;
     let a = name,
       b = mail;
-    users.push({ id: Id, name: a, mail: b });
-    console.log(users);
+    let newUsers = [...users];
+    newUsers.push({ id: Id, name: a, mail: b });
+    console.log(newUsers);
     alert("added");
     clearState();
   };
