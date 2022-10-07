@@ -1,28 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 export const Home = () => {
-  const users = [
+  const [name, setName] = useState([]);
+  const [mail, setMail] = useState([]);
+  const [users, setUsers] = [
     { id: 1, name: "abc", email: "abc@abc.com" },
     { id: 2, name: "cde", email: "cde@cde.com" },
   ];
+  const handleAdd = (e) => {
+    e.preventDefault();
+    let len = users.length;
+    let Id = len + 1;
+    let a = name,
+      b = mail;
+    let newUsers = [...users];
+    newUsers.push({ id: Id, name: a, mail: b });
+    console.log(users);
+    setUsers(newUsers);
+    alert("added");
+    clearState();
+  };
+  const clearState = () => {
+    setName("");
+    setMail("");
+  };
+  const data = [users].map((user) => (
+    <div>
+      <Card>
+        Id: {user.id}
+        <br /> Name: {user.name}
+        <br /> Email: {user.email}
+      </Card>
+      <br></br>
+    </div>
+  ));
   return (
     <div>
       <h2>home </h2>
       <label>Name:</label>&nbsp;&nbsp;
-      <input type="text"></input>
+      <input
+        type="text"
+        required
+        onChange={(e) => setName(e.target.value)}
+      ></input>
       <br></br>
       <label>Email:</label>&nbsp;&nbsp;
-      <input type="email"></input>
+      <input
+        type="email"
+        required
+        onChange={(e) => setMail(e.target.value)}
+      ></input>
       <br></br>
-      <button>Add user</button>
-      <Card>
-        {users.map((user) => (
-          <div>
-            Id: {user.id}&nbsp;&nbsp; Name: {user.name}&nbsp;&nbsp; Email:{" "}
-            {user.email}
-          </div>
-        ))}
-      </Card>
+      <button type="submit" onClick={handleAdd}>
+        Add user
+      </button>
     </div>
   );
 };
