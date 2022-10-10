@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Buttons } from "../Components/Buttons";
 import { UserList } from "../Components/UserList";
-export const Home = (users) => {
+export const Home = () => {
   // const handleAdd = (e) => {
   //   e.preventDefault();
   //   let len = users.length;
@@ -23,7 +23,7 @@ export const Home = (users) => {
 
   return (
     <div>
-      <Link to="/Details">
+      <Link to="/AddUser" style={{ textDecoration: "none" }}>
         <Buttons />
       </Link>
 

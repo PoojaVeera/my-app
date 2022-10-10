@@ -8,13 +8,16 @@ export const Header = () => {
         HOME
       </Link>
       <Link
-        to="/Details"
+        to="/AddUser"
         style={{ textDecoration: "none", color: "whitesmoke" }}
       >
-        Details
+        AddUser
       </Link>
-      <Link to="/Mock" style={{ textDecoration: "none", color: "whitesmoke" }}>
-        Mock
+      <Link
+        to="/EditUser"
+        style={{ textDecoration: "none", color: "whitesmoke" }}
+      >
+        EditUser
       </Link>
     </div>
   );

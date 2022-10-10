@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 import { Layout } from "./Components/Layout";
 import { Home } from "./Pages/Home";
-import { Details } from "./Pages/Details";
-import { Mock } from "./Pages/Mock";
+import { AddUser } from "./Pages/AddUser";
+import { EditUser } from "./Pages/EditUser";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
       <div className="Data">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Details" element={<Details />} />
-          <Route path="/Mock" element={<Mock />} />
+          <Route path="/AddUser" element={<AddUser />} />
+          <Route path="/EditUser/:id" element={<EditUser />} />
         </Routes>
       </div>
     </div>

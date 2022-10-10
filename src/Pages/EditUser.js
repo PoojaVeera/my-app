@@ -1,13 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export const Details = () => {
+export const EditUser = () => {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     name: "",
     mail: "",
   });
+  const handleEdit = () => {
+    setValues({ name: "", mail: "" });
+    navigate("/");
+  };
   return (
     <div>
-      <h2> Add details</h2>
+      <h2> Edit details</h2>
       <label>Name:</label>&nbsp;&nbsp;
       <input
         type="text"
@@ -24,7 +30,7 @@ export const Details = () => {
         onChange={(e) => setValues({ ...values, mail: e.target.value })}
       ></input>
       <br></br>
-      <button>submit</button>
+      <button onClick={handleEdit}>Edit</button>
     </div>
   );
 };
