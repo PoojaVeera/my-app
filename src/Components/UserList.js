@@ -3,11 +3,10 @@ import Card from "@mui/material/Card";
 import EditIcon from "@mui/icons-material/Edit";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 export const UserList = () => {
-  const users = [
-    { id: 1, name: "abc", email: "abc@abc.com" },
-    { id: 2, name: "cde", email: "cde@cde.com" },
-  ];
+  const users = useSelector((store) => store.users);
+
   return (
     <div>
       <br></br>
