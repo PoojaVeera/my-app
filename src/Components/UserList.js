@@ -14,19 +14,21 @@ export const UserList = () => {
       {users.map((user) => {
         return (
           <div>
-            <Card>
-              Id: {user.id}
-              <br /> Name: {user.name}
-              <br /> Email: {user.email}
-              <Link
-                to={`EditUser/${user.id}`}
-                style={{ textDecoration: "none" }}
-              >
-                <EditIcon />
-              </Link>
-              <RemoveIcon />
-            </Card>
-            <br></br>
+            <li style={{ listStyleType: "none" }}>
+              <Card>
+                Id: {user.id}
+                <br /> Name: {user.name}
+                <br /> Email: {user.email}
+                <Link
+                  to={`EditUser/${user.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <EditIcon />
+                </Link>
+                <RemoveIcon />
+              </Card>
+              <br></br>
+            </li>
           </div>
         );
       })}
