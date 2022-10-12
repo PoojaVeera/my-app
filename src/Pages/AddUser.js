@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addUser } from "../UserSlice";
+
 export const AddUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -11,12 +13,13 @@ export const AddUser = () => {
   const handleAdd = () => {
     setValues({ name: "", mail: "" });
     dispatch(
-      AddUser({
+      addUser({
         id: 3,
         name: values.name,
         mail: values.mail,
       })
     );
+
     navigate("/");
   };
   return (
@@ -32,7 +35,7 @@ export const AddUser = () => {
       <br></br>
       <label>Email:</label>&nbsp;&nbsp;
       <input
-        type="email"
+        type="text"
         value={values.mail}
         required
         onChange={(e) => setValues({ ...values, mail: e.target.value })}

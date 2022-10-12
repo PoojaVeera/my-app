@@ -4,6 +4,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { v4 as uuid } from "uuid";
+
 export const UserList = () => {
   const users = useSelector((store) => store.users);
 
@@ -14,7 +16,7 @@ export const UserList = () => {
       {users.map((user) => {
         return (
           <div>
-            <li style={{ listStyleType: "none" }}>
+            <li style={{ listStyleType: "none" }} key={uuid()}>
               <Card>
                 Id: {user.id}
                 <br /> Name: {user.name}
