@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { v4 as uuid } from "uuid";
 const initialState = [
-  { id: 1, name: "abc", email: "abc@abc.com" },
-  { id: 2, name: "cde", email: "cde@cde.com" },
+  { id: uuid(), name: "abc", email: "abc@abc.com" },
+  { id: uuid(), name: "cde", email: "cde@cde.com" },
 ];
 
 export const userSlice = createSlice({

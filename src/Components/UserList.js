@@ -16,7 +16,7 @@ export const UserList = () => {
       {users.map((user) => {
         return (
           <div>
-            <li style={{ listStyleType: "none" }} key={uuid()}>
+            <li key={uuid()} style={{ listStyleType: "none" }}>
               <Card>
                 Id: {user.id}
                 <br /> Name: {user.name}

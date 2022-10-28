@@ -12,7 +12,8 @@ export const AddUser = () => {
   });
 
   const handleAdd = (e) => {
-    setValues({ name: "", mail: "" });
+    // setValues({ name: "", mail: "" });
+    console.log(setValues);
     dispatch(
       addUser({
         id: uuid(),
@@ -31,7 +32,7 @@ export const AddUser = () => {
         type="text"
         value={values.name}
         required
-        onChange={(e) => setValues({ ...values, name: e.target.value })}
+        onChange={(e) => setValues(e.target.value)}
       ></input>
       <br></br>
       <label>Email:</label>&nbsp;&nbsp;
@@ -39,7 +40,7 @@ export const AddUser = () => {
         type="text"
         value={values.mail}
         required
-        onChange={(e) => setValues({ ...values, mail: e.target.value })}
+        onChange={(e) => setValues(e.target.value)}
       ></input>
       <br></br>
       <button onClick={handleAdd}>submit</button>
