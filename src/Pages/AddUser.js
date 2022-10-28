@@ -6,22 +6,19 @@ import { v4 as uuid } from "uuid";
 export const AddUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [values, setValues] = useState({
-    name: "",
-    mail: "",
-  });
+  const [name, setName] = useState("");
+  const [mail, setMail] = useState("");
+  const handleName = (e) => setName(e.target.value);
+  const handleMail = (e) => setMail(e.target.value);
 
   const handleAdd = (e) => {
-    // setValues({ name: "", mail: "" });
-    console.log(setValues);
     dispatch(
       addUser({
         id: uuid(),
-        name: e.values.name,
-        mail: e.values.mail,
+        name,
+        mail,
       })
     );
-
     navigate("/");
   };
   return (
@@ -30,18 +27,13 @@ export const AddUser = () => {
       <label>Name:</label>&nbsp;&nbsp;
       <input
         type="text"
-        value={values.name}
+        // value={values.name}
         required
-        onChange={(e) => setValues(e.target.value)}
+        onChange={handleName}
       ></input>
       <br></br>
       <label>Email:</label>&nbsp;&nbsp;
-      <input
-        type="text"
-        value={values.mail}
-        required
-        onChange={(e) => setValues(e.target.value)}
-      ></input>
+      <input type="email" required onChange={handleMail}></input>
       <br></br>
       <button onClick={handleAdd}>submit</button>
     </div>

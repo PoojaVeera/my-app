@@ -20,7 +20,7 @@ export const UserList = () => {
               <Card>
                 Id: {user.id}
                 <br /> Name: {user.name}
-                <br /> Email: {user.email}
+                <br /> Email: {user.mail}
                 <Link
                   to={`EditUser/${user.id}`}
                   style={{ textDecoration: "none" }}
