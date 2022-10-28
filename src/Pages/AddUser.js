@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../UserSlice";
-
+import { v4 as uuid } from "uuid";
 export const AddUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -10,13 +10,14 @@ export const AddUser = () => {
     name: "",
     mail: "",
   });
-  const handleAdd = () => {
+
+  const handleAdd = (e) => {
     setValues({ name: "", mail: "" });
     dispatch(
       addUser({
-        id: 3,
-        name: values.name,
-        mail: values.mail,
+        id: uuid(),
+        name: e.values.name,
+        mail: e.values.mail,
       })
     );
 
