@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../UserSlice";
-import { v4 as uuid } from "uuid";
+import { UserList } from "../Components/UserList";
+// import { v4 as uuid } from "uuid";
 export const AddUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userList = useSelector((state) => state.users.value);
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
-  const handleName = (e) => setName(e.target.value);
-  const handleMail = (e) => setMail(e.target.value);
 
   const handleAdd = (e) => {
     dispatch(
       addUser({
-        id: uuid(),
+        id: userList[userList.length - 1].id + 1,
         name,
         mail,
       })
@@ -29,11 +29,19 @@ export const AddUser = () => {
         type="text"
         // value={values.name}
         required
-        onChange={handleName}
+        onChange={(event) => {
+          setName(event.target.value);
+        }}
       ></input>
       <br></br>
       <label>Email:</label>&nbsp;&nbsp;
-      <input type="email" required onChange={handleMail}></input>
+      <input
+        type="email"
+        required
+        onChange={(event) => {
+          setMail(event.target.value);
+        }}
+      ></input>
       <br></br>
       <button onClick={handleAdd}>submit</button>
     </div>
