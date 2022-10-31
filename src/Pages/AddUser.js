@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../UserSlice";
-import { UserList } from "../Components/UserList";
+import "../Fakedata";
 // import { v4 as uuid } from "uuid";
 export const AddUser = () => {
   const dispatch = useDispatch();
@@ -11,16 +11,17 @@ export const AddUser = () => {
   const [name, setName] = useState("");
   const [mail, setMail] = useState("");
 
-  const handleAdd = (e) => {
-    dispatch(
-      addUser({
-        id: userList[userList.length - 1].id + 1,
-        name,
-        mail,
-      })
-    );
-    navigate("/");
-  };
+  // const handleAdd = (event) => {
+  //   dispatch(
+  //     addUser({
+  //       id: userList[userList.length - 1].id + 1,
+  //       name,
+  //       mail,
+  //     })
+  //   );
+  //   console.log("data");
+  //   navigate("/");
+  // };
   return (
     <div>
       <h2> Add details</h2>
@@ -28,22 +29,30 @@ export const AddUser = () => {
       <input
         type="text"
         // value={values.name}
-        required
-        onChange={(event) => {
-          setName(event.target.value);
+        // required
+        onChange={(e) => {
+          setName(e.target.value);
         }}
       ></input>
       <br></br>
       <label>Email:</label>&nbsp;&nbsp;
       <input
         type="email"
-        required
-        onChange={(event) => {
-          setMail(event.target.value);
+        // required
+        onChange={(e) => {
+          setMail(e.target.value);
         }}
       ></input>
       <br></br>
-      <button onClick={handleAdd}>submit</button>
+      <button
+        onClick={() => {
+          dispatch(
+            addUser({ id: userList[userList.length - 1].id + 1, name, mail })
+          );
+        }}
+      >
+        submit
+      </button>
     </div>
   );
 };

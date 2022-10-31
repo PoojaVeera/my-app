@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 // import { v4 as uuid } from "uuid";
 import { deleteUser } from "../UserSlice";
-import { Grid } from "@mui/material";
 export const UserList = () => {
   const users = useSelector((store) => store.users.value);
   const dispatch = useDispatch();
@@ -19,36 +18,34 @@ export const UserList = () => {
       {users.map((user) => {
         return (
           <div>
-            <Grid container spacing={5}>
-              <li
-                style={{
-                  listStyleType: "none",
-                  // display: "grid",
-                  // gridTemplateColumns: " 200px 200px 200px",
-                  // gridTemplateRows: "50px 50px 50px",
-                }}
-              >
-                <Card>
-                  Id: {user.id}
-                  <br /> Name: {user.name}
-                  <br /> Email: {user.mail}
-                  <Link
-                    to={`EditUser/${user.id}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <EditIcon />
-                  </Link>
-                  <button
-                    onClick={() => {
-                      dispatch(deleteUser({ id: user.id }));
-                    }}
-                  >
-                    <RemoveIcon />
-                  </button>
-                </Card>
-                <br></br>
-              </li>
-            </Grid>
+            <li
+              style={{
+                listStyleType: "none",
+                // display: "grid",
+                // gridTemplateColumns: " 200px 200px 200px",
+                // gridTemplateRows: "50px 50px 50px",
+              }}
+            >
+              <Card>
+                Id: {user.id}
+                <br /> Name: {user.name}
+                <br /> Email: {user.mail}
+                <Link
+                  to={`EditUser/${user.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <EditIcon />
+                </Link>
+                <button
+                  onClick={() => {
+                    dispatch(deleteUser({ id: user.id }));
+                  }}
+                >
+                  <RemoveIcon />
+                </button>
+              </Card>
+              <br></br>
+            </li>
           </div>
         );
       })}
