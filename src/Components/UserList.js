@@ -32,6 +32,7 @@ export const UserList = () => {
                 <br /> Email: {user.mail}
                 <Link
                   to={`EditUser/${user.id}`}
+                  params={{ name: "pooja" }}
                   style={{ textDecoration: "none" }}
                 >
                   <EditIcon />

@@ -1,10 +1,5 @@
 import { UsersData } from "./Fakedata";
 import { createSlice } from "@reduxjs/toolkit";
-// import { v4 as uuid } from "uuid";
-// const initialState = [
-//   { id: 1, name: "abc", mail: "abc@abc.com" },
-//   { id: 2, name: "cde", mail: "cde@cde.com" },
-// ];
 
 export const userSlice = createSlice({
   name: "users",
@@ -16,9 +11,17 @@ export const userSlice = createSlice({
     deleteUser: (state, action) => {
       state.value = state.value.filter((user) => user.id !== action.payload.id);
     },
+    editUser: (state, action) => {
+      const { id, name, mail } = action.payload;
+      const existingUser = state.find((user) => user.id === id);
+      if (existingUser) {
+        existingUser.name = name;
+        existingUser.mail = mail;
+      }
+    },
   },
 });
 
-export const { addUser, deleteUser } = userSlice.actions;
+export const { addUser, deleteUser, editUser } = userSlice.actions;
 
 export default userSlice.reducer;
